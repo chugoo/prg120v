@@ -1,4 +1,3 @@
-PHP-kode
 <?php /* Oppgave 3 */
 /*
 /* Programmet mottar 2 tall fra et HTML-skjema ved POST-metoden
