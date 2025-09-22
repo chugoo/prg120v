@@ -22,7 +22,9 @@
  $sqlSetning="DELETE FROM klasse WHERE klassekode='$klassekode';";
  mysqli_query($db,$sqlSetning) or die ("Du må slette studentene i klassen $klassekode før du kan slette klassen.");
  /* SQL-setning sendt til database-serveren */
- print ("F&oslash;lgende klasse er nå; slettet: $klassekode <br />");
- }
+ print ("F&oslash;lgende klasse er nå; slettet: $klassekode <br />");   
+ } else {
+    print "Feil: Klassen kan ikke slettes fordi den har registrerte studenter.";
+}
  include("slutt.html");
 ?>
