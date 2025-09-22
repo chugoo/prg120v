@@ -11,6 +11,8 @@ Klassekode<input type="text" id="klassekode" name="klassekode" required/>
 <br/>
 Klassenavn<input type="text" id="klassenavn" name="klassenavn" required/>
 <br/>
+studiumkode<input type="text" id="studiumkode" name="studiumkode" required/>
+<br/>
 <input type="submit" value="Registrer klasse" id="registrerklasseknapp" name="registrerklasseknapp"/> 
 <input type="reset" value="Nullstill" id="nullstill" name="nullstill" /> 
 <br/>
@@ -21,8 +23,9 @@ if (isset($_POST["registrerklasseknapp"]))
 {
     $klassekode = $_POST["klassekode"];
     $klassenavn = $_POST["klassenavn"];
-	
-    if (!$klassekode || !$klassenavn) 
+    $studiumkode = $_POST["studiumkode"];
+
+    if (!$klassekode || !$klassenavn || !$studiumkode) 
 	{
         print("Alle felt må fylles ut");
     }
