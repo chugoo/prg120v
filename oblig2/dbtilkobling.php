@@ -1,5 +1,5 @@
 <?php 
- $host="dokploy.usn.no";
+ $host="localhost";
  $user="140478";
  $password="c993140478";
  $database="140478"; 
