@@ -9,7 +9,7 @@ include("start.html");
 
 Klassekode<input type="text" id="klassekode" name="klassekode" required/> 
 <br/>
-Klassenavn<input type="text" id="klassenavn" name="klassenavn" required/>
+Klassenavn<input type="text" id="klasssenavn" name="klasss enavn" required/>
 <br/>
 studiumkode<input type="text" id="studiumkode" name="studiumkode" required/>
 <br/>
