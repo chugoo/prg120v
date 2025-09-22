@@ -50,11 +50,11 @@ if (isset($_POST["registrerklasseknapp"]))
 		} 
 		else 
 		{
-            $sqlSetning = "INSERT INTO klasse (klassekode,klassenavn)
-             VALUES('$klassekode','$klassenavn');";
+            $sqlSetning = "INSERT INTO klasse (klassekode, klassenavn, studiumkode)
+             VALUES('$klassekode','$klassenavn','$studiumkode');";
             mysqli_query($db,$sqlSetning) or die("ikke mulig &aring; registrere data i databasen");
             /* SQL-setning sendt til database-serveren */
-            
+
             print("F&oslash;lgende klasse er n&aring; registrert: $klassekode $klassenavn");
 			}
 		}
