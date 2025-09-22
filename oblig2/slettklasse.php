@@ -9,7 +9,7 @@
 <script src="funksjoner.js"> </script>
 <h3>Slett klasse</h3>
 <form method="post" action="" id="slettklasseSkjema" name="slettklasseSkjema" onSubmit="return bekreft()">
- klasse <select name="klassekode" id="klassekode"><?php include("dynamiskefunksjoner.php"); listeboksklassekode(); ?> required </select> <br/>
+ klasse<select name="klassekode" id="klassekode"><?php include("dynamiskefunksjoner.php"); listeboksklassekode(); ?> required </select> <br/>
 <input type="submit" value="Slett klasse" name="slettklasseKnapp" id="slettklasseKnapp" />      
 
 </form>
@@ -20,12 +20,9 @@
  include("dbtilkobling.php"); /* tilkobling til database-serveren utført og valg av database foretatt */
  $klassekode=$_POST ["klassekode"];
  $sqlSetning="DELETE FROM klasse WHERE klassekode='$klassekode';";
- if (!mysqli_query($db, $sqlSetning))
-   
-    echo "Du må slette studentene i klassen $klassekode før du kan slette klassen.";
-} else {
-    echo "Klassen $klassekode ble slettet.";
-}
-
+ mysqli_query($db,$sqlSetning) or die ("Du må slette studentene i klassen $klassekode før du kan slette klassen.");
+ /* SQL-setning sendt til database-serveren */
+ print ("F&oslash;lgende klasse er nå; slettet: $klassekode <br />");
+ }
  include("slutt.html");
 ?>
