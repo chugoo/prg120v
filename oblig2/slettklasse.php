@@ -20,7 +20,8 @@
  include("dbtilkobling.php"); /* tilkobling til database-serveren utført og valg av database foretatt */
  $klassekode=$_POST ["klassekode"];
  $sqlSetning="DELETE FROM klasse WHERE klassekode='$klassekode';";
- if (!mysqli_query($db, $sqlSetning)) {
+ if (!mysqli_query($db, $sqlSetning))
+  } {
     echo "Du må slette studentene i klassen $klassekode før du kan slette klassen.";
 } else {
     echo "Klassen $klassekode ble slettet.";
