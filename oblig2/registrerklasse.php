@@ -37,9 +37,11 @@ if (isset($_POST["registrerklasseknapp"]))
 	else
 		{	
     include("dbtilkobling.php");
+
         /* tilkobling til database-serveren utført og valg av database foretatt */
+
         $sqlSetning = "SELECT * FROM klasse WHERE klassekode='$klassekode';";
-        $sqlResultat = mysqli_query($db, $sqlSetning) or die("ikke mulig &aring; hente data fra databasen");
+        $sqlResultat = mysqli_query($db,$sqlSetning) or die("ikke mulig &aring; hente data fra databasen");
         $antallRader = mysqli_num_rows($sqlResultat);
 		
         if ($antallRader != 0) /* Denne klassen er registrert fra før */ 
@@ -48,9 +50,11 @@ if (isset($_POST["registrerklasseknapp"]))
 		} 
 		else 
 		{
-            $sqlSetning = "INSERT INTO klasse (klassekode,klassenavn) VALUES('$klassekode','$klassenavn');";
-            mysqli_query($db, $sqlSetning) or die("ikke mulig &aring; registrere data i databasen");
+            $sqlSetning = "INSERT INTO klasse (klassekode,klassenavn)
+             VALUES('$klassekode','$klassenavn');";
+            mysqli_query($db,$sqlSetning) or die("ikke mulig &aring; registrere data i databasen");
             /* SQL-setning sendt til database-serveren */
+            
             print("F&oslash;lgende klasse er n&aring; registrert: $klassekode $klassenavn");
 			}
 		}
