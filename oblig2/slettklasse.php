@@ -21,7 +21,7 @@
  $klassekode=$_POST ["klassekode"];
  $sqlSetning="DELETE FROM klasse WHERE klassekode='$klassekode';";
  if (!mysqli_query($db, $sqlSetning))
-  } {
+   
     echo "Du må slette studentene i klassen $klassekode før du kan slette klassen.";
 } else {
     echo "Klassen $klassekode ble slettet.";
