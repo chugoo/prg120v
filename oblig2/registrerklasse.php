@@ -22,7 +22,7 @@ studiumkode<input type="text" id="studiumkode" name="studiumkode" required/>
 if (isset($_POST["registrerklasseknapp"])) 
 {
     $klassekode = $_POST["klassekode"];
-    $klassenavn = $_POST["klassenavn"];
+    $klasssenavn = $_POST["klasssenavn"];
     $studiumkode = $_POST["studiumkode"];
 
     if (!$klassekode || !$klasssenavn || !$studiumkode) 
