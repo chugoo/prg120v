@@ -9,7 +9,7 @@ include("start.html");
 
 Klassekode<input type="text" id="klassekode" name="klassekode" required/> 
 <br/>
-Klassenavn<input type="text" id="klasssenavn" name="klasssenavn" required/>
+Klassenavn<input type="text" id="klassenavn" name="klassenavn" required/>
 <br/>
 studiumkode<input type="text" id="studiumkode" name="studiumkode" required/>
 <br/>
@@ -22,10 +22,10 @@ studiumkode<input type="text" id="studiumkode" name="studiumkode" required/>
 if (isset($_POST["registrerklasseknapp"])) 
 {
     $klassekode = $_POST["klassekode"];
-    $klasssenavn = $_POST["klasssenavn"];
+    $klassenavn = $_POST["klassenavn"];
     $studiumkode = $_POST["studiumkode"];
 
-    if (!$klassekode || !$klasssenavn || !$studiumkode) 
+    if (!$klassekode || !$klassenavn || !$studiumkode) 
 	{
         print("Alle felt må fylles ut");
     }
@@ -53,12 +53,12 @@ if (isset($_POST["registrerklasseknapp"]))
 		} 
 		else 
 		{
-            $sqlSetning = "INSERT INTO klasse (klassekode, klasssenavn, studiumkode)
-             VALUES('$klassekode','$klasssenavn','$studiumkode');";
+            $sqlSetning = "INSERT INTO klasse (klassekode, klassenavn, studiumkode)
+             VALUES('$klassekode','$klassenavn','$studiumkode');";
             mysqli_query($db,$sqlSetning) or die("ikke mulig &aring; registrere data i databasen");
             /* SQL-setning sendt til database-serveren */
 
-            print("F&oslash;lgende klasse er n&aring; registrert: $klassekode $klasssenavn $studiumkode");
+            print("F&oslash;lgende klasse er n&aring; registrert: $klassekode $klassenavn");
 			}
 		}
     }
