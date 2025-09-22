@@ -58,7 +58,7 @@ if (isset($_POST["registrerklasseknapp"]))
             mysqli_query($db,$sqlSetning) or die("ikke mulig &aring; registrere data i databasen");
             /* SQL-setning sendt til database-serveren */
 
-            print("F&oslash;lgende klasse er n&aring; registrert: $klassekode $klassenavn");
+            print("F&oslash;lgende klasse er n&aring; registrert: $klassekode $klassenavn $studiumkode");
 			}
 		}
     }
