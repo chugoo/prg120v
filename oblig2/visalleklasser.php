@@ -17,7 +17,8 @@ SQL-setning sendt til database-serveren */
  $rad=mysqli_fetch_array($sqlResultat); /* ny rad hentet fra spørringsresultatet */
  $klassekode=$rad["klassekode"];
  $klassenavn=$rad["klassenavn"];
- print ("<tr> <td> $klassekode </td> <td> $klassenavn </td> </tr>");
+ $studiumkode=$rad["studiumkode"];
+ print ("<tr> <td> $klassekode </td> <td> $klassenavn </td> <td> $studiumkode </td> </tr>");
  }
  print ("</table>");
  include("slutt.html");
