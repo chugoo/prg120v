@@ -1,5 +1,5 @@
 <?php
-<?php /* vis-alle-studier */
+/* vis-alle-studier */
 /*
 /* Programmet skriver ut alle registrerte studier
 */
