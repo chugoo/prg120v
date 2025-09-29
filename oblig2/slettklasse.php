@@ -3,15 +3,21 @@
 /* Programmet lager et skjema for å kunne slette et klasse
 /* Programmet sletter det valgte studiet
 */
- include("start.html");
+include("start.html");
 ?>
 
-<script src="funksjoner.js"> </script>
+<script src="funksjoner.js"></script>
 <h3>Slett klasse</h3>
 <form method="post" action="" id="slettklasseSkjema" name="slettklasseSkjema" onSubmit="return bekreft()">
- klasse <select name="klassekode" id="klassekode"><?php include("dynamiskefunksjoner.php"); listeboksklassekode(); ?> required </select> <br/>
-<input type="submit" value="Slett klasse" name="slettklasseKnapp" id="slettklasseKnapp" />      
-
+    Klasse 
+    <select name="klassekode" id="klassekode" required>
+        <?php 
+        include("dynamiskefunksjoner.php"); 
+        listeboksklassekode(); 
+        ?>
+    </select>
+    <br/>
+    <input type="submit" value="Slett klasse" name="slettklasseKnapp" id="slettklasseKnapp" />      
 </form>
 
 <?php

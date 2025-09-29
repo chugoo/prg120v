@@ -1,4 +1,4 @@
-<?php /* vis-alle-fag */
+<?php 
 /*
 /* Programmet skriver ut alle registrerte fag
 */
