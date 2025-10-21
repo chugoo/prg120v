@@ -1,38 +1,49 @@
 <!DOCTYPE html>
+<html lang="no">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Obligatorisk oppgave 2</title>
-  <meta charset="utf-8"/>
 
-  <!-- Global stil -->
+  <!-- Global stil (last ned tidligere): oblig2/style.css -->
   <link rel="stylesheet" href="oblig2/style.css">
 
   <!-- Din JS + små UI-forbedringer -->
   <script src="oblig2/funksjoner.js"></script>
   <script defer src="oblig2/ui.js"></script>
+
+  <!-- (Valgfritt) liten favicon -->
+  <!-- <link rel="icon" href="data:;base64,=" /> -->
 </head>
 
-
 <body class="obligcss">
-
   <div id="boks">
-
     <header>
-      <h1>Obligatorisk oppgave 2</h1>
+      <h1 class="m0">Obligatorisk oppgave 2</h1>
+      <p class="m0" style="opacity:.8">PRG120V • PHP + MySQL • Administrasjon av klasser og studenter</p>
     </header>
 
-    <nav>
+    <!-- Grid-layout: sidebar + innhold -->
+    <div class="mt16" style="display:grid; grid-template-columns: 260px 1fr; gap:16px;">
+      
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Hovedmeny">
+        <h5>KLASSER</h5>
+        <p><a href="oblig2/registrerklasse.php" class="btn btn-ghost mt8">Registrer klasse</a></p>
+        <p><a href="oblig2/visalleklasser.php" class="btn btn-ghost mt8">Vis alle klasser</a></p>
+        <p><a href="oblig2/slettklasse.php" class="btn btn-ghost mt8" data-confirm="Slette klasse?">Slett klasse</a></p>
 
-    
-      <h5>KLASSER</h5>
-      <p><a href="oblig2/registrerklasse.php">Registrer klasse</a></p>
-      <p><a href="oblig2/visalleklasser.php">Vis alle klasser</a></p>  
-	  <p><a href="oblig2/slettklasse.php">Slett klasse</a></p>
-      <h5>STUDENTER</h5>
-      <p><a href="oblig2/registrerstudent.php">Registrer student</a></p>
-      <p><a href="oblig2/visallestudenter.php">Vis alle studenter</a></p>
-	  <p><a href="oblig2/slettstudent.php">Slett student</a></p>
+        <h5 class="mt16">STUDENTER</h5>
+        <p><a href="oblig2/registrerstudent.php" class="btn btn-ghost mt8">Registrer student</a></p>
+        <p><a href="oblig2/visallestudenter.php" class="btn btn-ghost mt8">Vis alle studenter</a></p>
+        <p><a href="oblig2/slettstudent.php" class="btn btn-ghost mt8" data-confirm="Slette student?">Slett student</a></p>
 
-	  
-     </nav>
+        <!-- Valgfritt: ny drag & drop-side -->
+        <h5 class="mt16">VERKTØY</h5>
+        <p><a href="oblig2/flyttstudenter.php" class="btn btn-ghost mt8">Flytt studenter (drag & drop)</a></p>
+      </aside>
 
-	 <article>
+      <!-- Innhold starter (lukkes i slutt.html) -->
+      <article role="main">
+        <!-- Du kan sette inn en melding/alert her fra PHP ved behov -->
+        <div id="melding"></div>
