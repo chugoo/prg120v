@@ -1,5 +1,5 @@
 <?php
-// oblig2/move_student.php
+// oblig2/move_student.php — oppdaterer klassekode basert på brukernavn
 header('Content-Type: application/json; charset=utf-8');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -8,15 +8,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   exit;
 }
 
-$raw = file_get_contents('php://input');
-$data = json_decode($raw, true);
+$data = json_decode(file_get_contents('php://input'), true);
+$brukernavn = isset($data['brukernavn']) ? trim($data['brukernavn']) : '';
+$toKlasse = isset($data['to_klassekode']) ? trim($data['to_klassekode']) : '';
 
-$studentnr = isset($data['studentnr']) ? trim($data['studentnr']) : '';
-$toKlasse  = isset($data['to_klassekode']) ? trim($data['to_klassekode']) : '';
-
-if ($studentnr === '' || $toKlasse === '') {
+if ($brukernavn === '' || $toKlasse === '') {
   http_response_code(400);
-  echo json_encode(['success'=>false, 'error'=>'Mangler studentnr eller klassekode']);
+  echo json_encode(['success'=>false, 'error'=>'Mangler brukernavn eller klassekode']);
   exit;
 }
 
@@ -35,8 +33,8 @@ if (mysqli_stmt_num_rows($stmt) === 0) {
 mysqli_stmt_close($stmt);
 
 // Oppdater studentens klassekode
-$upd = mysqli_prepare($db, "UPDATE student SET klassekode=? WHERE studentnr=?");
-mysqli_stmt_bind_param($upd, "ss", $toKlasse, $studentnr);
+$upd = mysqli_prepare($db, "UPDATE student SET klassekode=? WHERE brukernavn=?");
+mysqli_stmt_bind_param($upd, "ss", $toKlasse, $brukernavn);
 if (!mysqli_stmt_execute($upd)) {
   http_response_code(500);
   echo json_encode(['success'=>false, 'error'=>'Databasefeil ved oppdatering']);
@@ -44,7 +42,7 @@ if (!mysqli_stmt_execute($upd)) {
 }
 if (mysqli_stmt_affected_rows($upd) === 0) {
   http_response_code(404);
-  echo json_encode(['success'=>false, 'error'=>'Finner ikke studenten']);
+  echo json_encode(['success'=>false, 'error'=>'Fant ikke studenten']);
   exit;
 }
 mysqli_stmt_close($upd);
