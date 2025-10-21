@@ -156,3 +156,4 @@ function updateCounts() {
 </script>
 
 <?php include("slutt.html"); ?>
+
