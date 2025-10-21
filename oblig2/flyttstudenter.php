@@ -16,7 +16,7 @@ while ($row = mysqli_fetch_assoc($res)) {
 }
 
 // Hent alle studenter gruppert på klasse
-$sqlS = "SELECT studentnr, fornavn, etternavn, klassekode FROM student ORDER BY etternavn, fornavn";
+$sqlS = "SELECT  fornavn, etternavn, klassekode FROM student ORDER BY etternavn, fornavn";
 $resS = mysqli_query($db, $sqlS);
 while ($s = mysqli_fetch_assoc($resS)) {
   if (!isset($klasser[$s['klassekode']])) {
